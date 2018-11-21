@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1542810265 source:c:\users\uib46586\desktop\timer\time_handler.c
+	"time_handler.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<string.h>
+	<stdio.h>
+	<fcntl.h>
+	<windows.h>
+
+1542810309 c:\users\uib46586\desktop\timer\time_handler.h
+
+1542810325 source:c:\users\uib46586\desktop\timer\main.c
+	<stdio.h>
+	"time_handler.h"
+	<stdio.h>
+	<stdlib.h>
+	<unistd.h>
+	<string.h>
+	<stdio.h>
+	<windows.h>
+
