@@ -3,18 +3,13 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <stdio.h> // for io ops
-#include <fcntl.h> // for file control
-#include<windows.h>
+#include <windows.h>
 
 /* TBD Update - Implement a Debug MODE for Developers */
 /* TBD Update - When user select YES at Stop Tracker menu , the program show unreal information*/
-/* TBD Update - Secure the file where data are stored (output) (Do some encryption to the file when writing and decrypt when reading) 
+/* TBD Update - Secure the file where data are stored (output)
 /* TBD Update - Ask user for a e-mail adress option in menu and at the end send a E-mail with specific information about spend time*/
 /* TBD Continuous Update - Do Code optimization as much as you can */
-/* TBD - Remove header inclusion that are not necessarly */
-
-
 
 /*This function control the menu of the program
 STATUS : DONE and TESTED*/
@@ -26,7 +21,6 @@ S8 time_date[FILE_LENGHT] = "The START time is : ";
 S32  stop_time_alegere;
 S8 Total_Time[FILE_LENGHT];
 
-
 strcat(time_date,__TIME__);
 strcat(time_date,"\n");
 strcat(time_date,"Date: : ");
@@ -36,11 +30,8 @@ MessageBox(NULL,"Welcome to Time Tracker Application !\n\nPlease select a option
 /**********************************************************************/
 S32  start_time_alegere = MessageBox(NULL,"Start Time Tracker",           "############    Time_Tracker    ############          ",MB_YESNO);
 
-
 /*Control the logic of the menu*/
-int ceva;
-ceva = succes_write_file = Read_Start_Stop_Flag();
-
+succes_write_file = Read_Start_Stop_Flag();
 
 if(start_time_alegere == IDYES && succes_write_file == FALSE )
 {
@@ -51,8 +42,6 @@ if(start_time_alegere == IDYES && succes_write_file == FALSE )
     Get_Time(PRINT_INACTIVE);
     Get_Date(PRINT_INACTIVE);
     SaveTimeAndDate(PRINT_INACTIVE);
-
-
 }
 else if(start_time_alegere == IDYES && succes_write_file == TRUE)
 {
@@ -60,8 +49,6 @@ else if(start_time_alegere == IDYES && succes_write_file == TRUE)
         MessageBox(NULL,"You already Start the Time Tracker.\nDo you want to stop the Tracker?" ," ############    Time_Tracker    ############          ",MB_ICONEXCLAMATION );
         /**********************************************************************/
         goto STOP;
-
-
 }
 else
 {
@@ -103,13 +90,10 @@ void printTime_Difference()
       S8 minutes[SEC_MIN_HOUR_LENGTH];
       S8 seconds[SEC_MIN_HOUR_LENGTH];
 
-
-
       itoa(stop_time.hour_integer,hours,DECIMALL);
       itoa(stop_time.minutes_integer,minutes,DECIMALL);
       itoa(stop_time.seconds_integer,seconds,DECIMALL);
       printf("\nTime spend is: %d:%d:%d",stop_time.hour_integer,stop_time.minutes_integer,stop_time.seconds_integer);
-
 
       strcat(ShownTime,hours);
       strcat(ShownTime,SEPARATOR);
@@ -134,12 +118,11 @@ CURRENT_TIME differenceBetweenTimePeriod(CURRENT_TIME start, CURRENT_TIME stop)
     }
 
     diff.seconds_integer = start.seconds_integer - stop.seconds_integer;
-     diff.seconds_integer = abs(diff.seconds_integer);
+    diff.seconds_integer = abs(diff.seconds_integer);
     if(stop.minutes_integer > start.minutes_integer){
         --start.hour_integer;
         start.minutes_integer += 60;
     }
-
 
     diff.minutes_integer = start.minutes_integer - stop.minutes_integer;
     diff.minutes_integer = abs(diff.minutes_integer);
@@ -148,13 +131,11 @@ CURRENT_TIME differenceBetweenTimePeriod(CURRENT_TIME start, CURRENT_TIME stop)
     if(stop.hour_integer < start.hour_integer)
     {
         diff.hour_integer = 24 - diff.hour_integer;
-
-
     }
     return diff;
     printf("%d",diff.hour_integer);
-     printf("%d",diff.minutes_integer);
-      printf("%d",diff.seconds_integer);
+    printf("%d",diff.minutes_integer);
+    printf("%d",diff.seconds_integer);
 
 }
 
@@ -256,8 +237,7 @@ void Get_Date(S8 *print)
     date_flow.year_integer = atoi(year);
      if(strcmp(print,"print") == STRING_ARE_EQUAL)
      {
-    printf("\nThe date is : %d.%d.%d ",date_flow.day_integer,date_flow.month_integer,date_flow.year_integer);
-
+        printf("\nThe date is : %d.%d.%d ",date_flow.day_integer,date_flow.month_integer,date_flow.year_integer);
      }
 }
 
@@ -272,15 +252,13 @@ void SaveTimeAndDate(char *print)
      out = fopen("output","w+");
      if(out == NULL)
     {
-     printf("Error writting file!");
-
+        printf("Error writting file!");
     }
     fprintf(out,"%d#%d#%d#%d#%d#%d#%d",time_flow.hour_integer,time_flow.minutes_integer,time_flow.seconds_integer,date_flow.day_integer,date_flow.month_integer,date_flow.year_integer,succes_write_file);
     fclose(out);
     if(strcmp(print,"print") == STRING_ARE_EQUAL)
     {
         printf("\nThe start time is : %d:%d:%d",time_flow.hour_integer,time_flow.minutes_integer,time_flow.seconds_integer);
-
     }
 }
 
@@ -295,8 +273,6 @@ CURRENT_TIME ComputationTime()
     S8 minutes_spend;
     S8 seconds_spend;
     U8 lenght_time_from_file = 8;
-
-
     S8 *fileName = "output";
     S8 time_from_file[FILE_LENGHT];
     S8 hour[SEC_MIN_HOUR_LENGTH] = "0";
@@ -304,7 +280,6 @@ CURRENT_TIME ComputationTime()
     S8 seconds[SEC_MIN_HOUR_LENGTH] = "0";
     strcpy(time_from_file,readFile(fileName));
     printf("%s",time_from_file);
-
 
     hour[0] = time_from_file[0];
     hour[1] = time_from_file[1];
@@ -329,7 +304,7 @@ CURRENT_TIME ComputationTime()
         minutes[1] = time_from_file[3];
         if(minutes[1] != '#')
         {
-            seconds[0] = time_from_file[5];
+           seconds[0] = time_from_file[5];
            seconds[1] = time_from_file[6];
         }
        else
@@ -337,7 +312,6 @@ CURRENT_TIME ComputationTime()
            seconds[0] = time_from_file[4];
            seconds[1] = time_from_file[5];
        }
-
     }
 
     hours_spend = atoi(hour);
@@ -349,7 +323,6 @@ CURRENT_TIME ComputationTime()
     stop_time.seconds_integer = seconds_spend;
     printf("\nTime from file is: %d:%d:%d",stop_time.hour_integer,stop_time.minutes_integer,stop_time.seconds_integer);
     printf("\nTime from file is: %d:%d:%d",time_flow.hour_integer,time_flow.minutes_integer,time_flow.seconds_integer);
-
 
     /*Computation Method for  time */
     return (differenceBetweenTimePeriod(time_flow,stop_time));
