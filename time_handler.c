@@ -9,9 +9,11 @@
 
 /* TBD Update - Implement a Debug MODE for Developers */
 /* TBD Update - When user select YES at Stop Tracker menu , the program show unreal information*/
-/* TBD Update - Secure the file where data are stored (output)
+/* TBD Update - Secure the file where data are stored (output) (Do some encryption to the file when writing and decrypt when reading) 
 /* TBD Update - Ask user for a e-mail adress option in menu and at the end send a E-mail with specific information about spend time*/
 /* TBD Continuous Update - Do Code optimization as much as you can */
+/* TBD - Remove header inclusion that are not necessarly */
+
 
 
 /*This function control the menu of the program
