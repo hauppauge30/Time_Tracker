@@ -232,6 +232,50 @@ void Get_Date(S8 *print)
     {
         date_flow.month_integer = 11;
     }
+     else if(strcmp(month,"Dec") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 12;
+    }
+    else if(strcmp(month,"Jan") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 1;
+    }
+    else if(strcmp(month,"Feb") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 2;
+    }
+    else if(strcmp(month,"Mar") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 3;
+    }
+    else if(strcmp(month,"Apr") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 4;
+    }
+    else if(strcmp(month,"May") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 5;
+    }
+    else if(strcmp(month,"Jun") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 6;
+    }
+    else if(strcmp(month,"Jul") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 7;
+    }
+    else if(strcmp(month,"Aug") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 8;
+    }
+    else  if(strcmp(month,"Sep") == STRING_ARE_EQUAL )
+    {
+        date_flow.month_integer = 9;
+    }
+    else
+    {
+        date_flow.month_integer = 10;
+    }
 
     date_flow.day_integer = atoi(day);
     date_flow.year_integer = atoi(year);
