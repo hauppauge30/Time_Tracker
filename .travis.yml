@@ -3,6 +3,5 @@ compiler:
   - clang
   - gcc
 script:
-  - clang -coverage -O0 main.c -o hello
-  - ./hello
-  - gcov hello.c
+  - gcc main.c -o output
+  - ./output
