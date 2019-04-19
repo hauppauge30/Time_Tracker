@@ -1,6 +1,5 @@
 language: c
 compiler:
-  - clang
   - gcc
 script:
   - gcc main.c -o output
