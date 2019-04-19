@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-#include <windows.h>
+//#include <windows.h>
 
 /* TBD Update - Implement a Debug MODE for Developers */
 /* TBD Update - When user select YES at Stop Tracker menu , the program show unreal information*/
@@ -13,6 +13,7 @@
 
 /*This function control the menu of the program
 STATUS : DONE and TESTED*/
+/*
 void MessageBoxTime()
 {
 Get_Time(PRINT_INACTIVE);
@@ -78,7 +79,7 @@ else
 
 }
 
-
+*/
 /*This function create a string that store the computed spend time
 STATUS : DONE and TESTED*/
 void printTime_Difference()
