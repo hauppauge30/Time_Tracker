@@ -2,6 +2,7 @@ language: c
 compiler:
   - clang
   - gcc
- clang -coverage -O0 main.c -o hello
+script:
+  - clang -coverage -O0 main.c -o hello
   - ./hello
   - gcov hello.c
