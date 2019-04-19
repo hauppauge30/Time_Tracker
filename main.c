@@ -12,7 +12,7 @@
 int main(int argc,char* argv[])
 {
 
-    MessageBoxTime();
+    //MessageBoxTime();
 
 
     return 0;
