@@ -16,5 +16,5 @@ script:
   - arduino --verify --board arduino:avr:uno $PWD/examples/AdafruitIO_GPS/AdafruitIO_GPS.ino
 notifications:
   email:
-    on_success: change
-    on_failure: change
+    on_success: ostafie.ionut@gmail.com 
+    on_failure: ostafie.ionut@gmail.com
